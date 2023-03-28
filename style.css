@@ -1,0 +1,64 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+h1.logo {
+    text-align: center;
+    color: blue;
+    margin-top: 20px;
+}
+input#search {
+    width: 500px;
+    margin-left: 413px;
+    margin-top: 12px;
+    height: 25px;
+    border: solid blue 1px;
+}
+.filterbtn {
+    height: 40px;
+    width: 130px;
+    background-color: #9ee2d8;
+    border: solid 2px blue;
+    border-radius: 20px;
+}
+.fiter {
+    margin-left: 540px;
+    margin-top: 28px;
+}
+.UsersUI {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 60px;
+}
+img#imgs {
+    height: 281px;
+    border-radius: 29px;
+}
+.mndiv{
+    position: relative;
+}
+#name {
+    position: absolute;
+    bottom: 21px;
+    list-style: none;
+    color: #fffe0a;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: red;
+}
+li{
+    list-style: none;
+}
+img:hover{
+    filter: blur(7px);
+}
+/* #name:hover + #name{
+    visibility: visible;
+} */
+#name:hover + img{
+    filter: blur(7px);
+}
