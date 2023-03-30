@@ -11,39 +11,39 @@ window.addEventListener("DOMContentLoaded", () => {
         .then(res => res.json())//raw data to JSON
         .then(data => {
 
+            let listes = document.querySelectorAll(".mndiv")
+            remove(listes)
+
             for (let i = 0; i < data.results.length; i++) {
-
                 filters(data.results[i])
-
-                maleBtn.addEventListener("click", (e) => {
-                    e.preventDefault()
-
-                    maleBtn.classList.add("activ")
-
-                    female.classList.remove("activ")
-
-
-                    filters(data.results[i])
-
-                })
-
-                female.addEventListener("click", (e) => {
-                    e.preventDefault()
-
-                    if(female.classList.contains("activ")){
-                        female.classList.remove("activ")
-                    }
-                    else{
-                        female.classList.add("activ")
-                    }
-
-                    maleBtn.classList.remove("activ")
-
-                    filters(data.results[i])
-
-                })
-
             }
+
+            maleBtn.addEventListener("click", (e) => {
+                e.preventDefault()
+                maleBtn.classList.toggle("activ")
+                female.classList.remove("activ")
+
+                let listes = document.querySelectorAll(".mndiv")
+                remove(listes)
+
+                for (let i = 0; i < data.results.length; i++) {
+                    filters(data.results[i])
+                }
+
+            })
+            female.addEventListener("click", (e) => {
+                e.preventDefault()
+                female.classList.toggle("activ")
+                maleBtn.classList.remove("activ")
+
+                let listes = document.querySelectorAll(".mndiv")
+                remove(listes)
+
+                for (let i = 0; i < data.results.length; i++) {
+                    filters(data.results[i])
+                }
+
+            })
 
             search.addEventListener("keyup", () => {
                 let lists = document.querySelectorAll("#name")
@@ -56,6 +56,12 @@ window.addEventListener("DOMContentLoaded", () => {
                     }
                 }
             })
+
+            function remove(listes){
+                for(let k=0;k<listes.length;k++){
+                    listes[k].remove()
+                }
+            }
 
             function filters(updateData){
                 if(maleBtn.classList.contains("activ")){
