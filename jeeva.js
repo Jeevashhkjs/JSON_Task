@@ -5,7 +5,6 @@ let female = document.querySelector(".femaleBtn")
 let search = document.querySelector("#search")
 let load = document.querySelector(".loading")
 
-
 // let dummy = []
 window.addEventListener("DOMContentLoaded", () => {
     fetch('https://randomuser.me/api?results=20')
@@ -14,25 +13,34 @@ window.addEventListener("DOMContentLoaded", () => {
 
             for (let i = 0; i < data.results.length; i++) {
 
+                filters(data.results[i])
+
                 maleBtn.addEventListener("click", (e) => {
                     e.preventDefault()
+
                     maleBtn.classList.add("activ")
+
                     female.classList.remove("activ")
 
-                    if(data.results[i].gender == "male"){
-                        addNew(data.results[i])
-                    }
+
+                    filters(data.results[i])
 
                 })
 
                 female.addEventListener("click", (e) => {
                     e.preventDefault()
-                    female.classList.toggle("activ")
+
+                    if(female.classList.contains("activ")){
+                        female.classList.remove("activ")
+                    }
+                    else{
+                        female.classList.add("activ")
+                    }
+
                     maleBtn.classList.remove("activ")
 
-                    if(data.results[i].gender == "female"){
-                        addNew(data.results[i])
-                    }
+                    filters(data.results[i])
+
                 })
 
             }
@@ -48,6 +56,22 @@ window.addEventListener("DOMContentLoaded", () => {
                     }
                 }
             })
+
+            function filters(updateData){
+                if(maleBtn.classList.contains("activ")){
+                    if(updateData.gender == "male"){
+                        addNew(updateData)
+                    }
+                }
+                else if(female.classList.contains("activ")){
+                    if(updateData.gender == "female"){
+                        addNew(updateData)
+                    }
+                }
+                else {
+                    addNew(updateData)
+                }
+            }
 
             function addNew(newData) {
 
