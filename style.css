@@ -56,9 +56,14 @@ li{
 img:hover{
     filter: blur(7px);
 }
-/* #name:hover + #name{
-    visibility: visible;
-} */
-#name:hover + img{
-    filter: blur(7px);
+img:hover + li{
+    display: block;
 }
+i{
+   font-size: 300px;
+}
+.activ{
+    background-color: blue;
+    color: white;
+}
+
