@@ -1,5 +1,6 @@
 let UsersUI = document.querySelector(".UsersUI")
 let maleBtn = document.querySelector(".maleBtn")
+
 let female = document.querySelector(".femaleBtn")
 
 let search = document.querySelector("#search")
@@ -59,20 +60,52 @@ window.addEventListener("DOMContentLoaded", () => {
                 }
             })
 
-            function remove(listes){
-                for(let k=0;k<listes.length;k++){
+            let images = document.querySelectorAll("#imgs")
+            let names = document.querySelectorAll("#name")
+
+
+
+            for(let js=0;js<images.length;js++){
+
+                images[js].addEventListener("mouseenter",()=>{
+                    images[js].style.filter = "blur(4px)"
+                    names[js].style.display = "block"
+                })
+
+                images[js].addEventListener("mouseout",()=>{
+                    images[js].style.filter = "blur(0px)"
+                    names[js].style.display = "none"
+                })
+
+                names[js].addEventListener("mouseenter",()=>{
+                    images[js].style.filter = "blur(4px)"
+                    names[js].style.display = "block"
+                })
+
+                names[js].addEventListener("mouseout",()=>{
+                    images[js].style.filter = "blur(0px)"
+                    names[js].style.display = "none"
+                })
+
+            }
+
+
+
+
+            function remove(listes) {
+                for (let k = 0; k < listes.length; k++) {
                     listes[k].remove()
                 }
             }
 
-            function filters(updateData){
-                if(maleBtn.classList.contains("activ")){
-                    if(updateData.gender == "male"){
+            function filters(updateData) {
+                if (maleBtn.classList.contains("activ")) {
+                    if (updateData.gender == "male") {
                         addNew(updateData)
                     }
                 }
-                else if(female.classList.contains("activ")){
-                    if(updateData.gender == "female"){
+                else if (female.classList.contains("activ")) {
+                    if (updateData.gender == "female") {
                         addNew(updateData)
                     }
                 }
@@ -87,14 +120,15 @@ window.addEventListener("DOMContentLoaded", () => {
                 mainDiv.setAttribute("class", "mndiv")
                 UsersUI.append(mainDiv)
 
-                let img = document.createElement("img")
-                img.setAttribute("id", "imgs")
-                img.src = newData.picture.large
-                mainDiv.append(img)
-
                 let a = document.createElement("a")
                 a.href = `./user.html?id=${newData.id.value}`
                 mainDiv.append(a)
+
+                let img = document.createElement("img")
+                img.setAttribute("id", "imgs")
+                img.src = newData.picture.large
+                a.append(img)
+
 
                 let name = document.createElement("li")
                 name.setAttribute("id", "name")

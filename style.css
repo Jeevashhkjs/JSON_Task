@@ -20,7 +20,6 @@ input.search{
     box-shadow: 2px 2px 7px 0px gray inset;
     border: solid 2px gray;
     font-size: 24px;
-    letter-spacing: 5px;
     border-radius: 10px;
     outline: none;
 
@@ -71,17 +70,14 @@ img#imgs {
     color: #fffe0a;
     font-size: 30px;
     font-weight: bold;
+    padding-left: 10px;
+    display: none;
     background-color: red;
 }
 li{
     list-style: none;
 }
-img:hover{
-    filter: blur(7px);
-}
-img:hover + li{
-    display: block;
-}
+
 i{
     font-weight: 900;
     font-size: 250px;
@@ -93,3 +89,34 @@ i{
     color: white;
 }
 
+
+/* UserDetails styles */
+
+.userContainer{
+    position: relative;
+}
+.userDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 30px;
+    text-align: center;
+    color: #000051;
+    margin-top: 80px;
+    border: solid 3px blue;
+    padding: 31px 20px 31px 1px;
+    width: 50%;
+    box-shadow: 4px 4px 7px 0px gray;
+    margin-left: 390px;
+}
+img#userImg {
+    width: 160px;
+    border: solid 2px #b80095;
+    margin: auto;
+}
+.leftarrow {
+    font-size: 40px;
+    position: absolute;
+    right: 911px;
+    top: 2px;
+}

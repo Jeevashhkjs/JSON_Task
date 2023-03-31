@@ -1,4 +1,4 @@
-console.log(window.location.search)
+
 let user = document.querySelector(".userDetails")
 
 let load = document.querySelector(".loading")
@@ -15,6 +15,7 @@ window.addEventListener("DOMContentLoaded",()=>{
         load.style.display = "none"
 
         let createImg = document.createElement("img")
+        createImg.setAttribute("id","userImg")
         createImg.src = data.results[0].picture.large
         user.append(createImg)
         
