@@ -3,24 +3,47 @@
     margin: 0;
     box-sizing: border-box;
 }
+body {
+    background-color: #e2f9f4;
+}
 h1.logo {
     text-align: center;
     color: blue;
     margin-top: 20px;
 }
-input#search {
+input.search{
     width: 500px;
     margin-left: 413px;
     margin-top: 12px;
-    height: 25px;
-    border: solid blue 1px;
+    height: 33px;
+    padding-left: 10px;
+    box-shadow: 2px 2px 7px 0px gray inset;
+    border: solid 2px gray;
+    font-size: 24px;
+    letter-spacing: 5px;
+    border-radius: 10px;
+    outline: none;
+
+}
+input:focus{
+    border: solid gray 3px;
+    box-shadow: none;
 }
 .filterbtn {
     height: 40px;
     width: 130px;
     background-color: #9ee2d8;
+    color: blue;
     border: solid 2px blue;
     border-radius: 20px;
+    font-weight: bold;
+    font-size: 24px;
+}
+.filterbtn:hover{
+    cursor: pointer;
+    transition: 1s;
+    background-color: blue;
+    color: white;
 }
 .fiter {
     margin-left: 540px;
@@ -60,7 +83,10 @@ img:hover + li{
     display: block;
 }
 i{
-   font-size: 300px;
+    font-weight: 900;
+    font-size: 250px;
+    color: #c410ff;
+    margin-left: 550px;
 }
 .activ{
     background-color: blue;

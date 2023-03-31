@@ -11,6 +11,8 @@ window.addEventListener("DOMContentLoaded", () => {
         .then(res => res.json())//raw data to JSON
         .then(data => {
 
+            load.style.display = "none"
+
             let listes = document.querySelectorAll(".mndiv")
             remove(listes)
 
@@ -48,7 +50,7 @@ window.addEventListener("DOMContentLoaded", () => {
             search.addEventListener("keyup", () => {
                 let lists = document.querySelectorAll("#name")
                 for (let i = 0; i < lists.length; i++) {
-                    if (lists[i].innerText.indexOf(search.value) != -1) {
+                    if (lists[i].innerText.toUpperCase().indexOf(search.value.toUpperCase()) != -1) {
                         lists[i].parentElement.parentElement.style.display = "block"
                     }
                     else {

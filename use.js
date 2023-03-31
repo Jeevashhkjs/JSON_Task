@@ -1,6 +1,9 @@
 console.log(window.location.search)
 let user = document.querySelector(".userDetails")
 
+let load = document.querySelector(".loading")
+
+
 let ids = window.location.search;
 
 
@@ -8,7 +11,8 @@ window.addEventListener("DOMContentLoaded",()=>{
     fetch(`https://randomuser.me/api?results=20${ids}`)
     .then(res => res.json())
     .then(data => {
-        console.log(data.results[0])
+
+        load.style.display = "none"
 
         let createImg = document.createElement("img")
         createImg.src = data.results[0].picture.large
