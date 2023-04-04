@@ -67,12 +67,17 @@ img#imgs {
     position: absolute;
     bottom: 21px;
     list-style: none;
-    color: #fffe0a;
-    font-size: 30px;
+    color: #000505;
+    font-size: 17px;
     font-weight: bold;
-    padding-left: 10px;
+    margin-left: 63px;
+    padding: 6px 16px;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 2px 2px 7px 4px #f9ed3c;
     display: none;
-    background-color: red;
+    background-color: #afafc3;
+    word-wrap: break-word;
 }
 li{
     list-style: none;

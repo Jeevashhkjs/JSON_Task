@@ -24,9 +24,7 @@ window.addEventListener("DOMContentLoaded", () => {
             let listes = document.querySelectorAll(".mndiv")
             remove(listes)
 
-            for (let i = 0; i < data.results.length; i++) {
-                filters(data.results[i])
-            }
+            filters()
 
             let imageses = document.querySelectorAll("#imgs")
             let nameses = document.querySelectorAll("#name")
@@ -40,9 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 let listes = document.querySelectorAll(".mndiv")
                 remove(listes)
 
-                for (let i = 0; i < data.results.length; i++) {
-                    filters(data.results[i])
-                }
+                filters()
 
                 let imagess = document.querySelectorAll("#imgs")
                 let namess = document.querySelectorAll("#name")
@@ -57,9 +53,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 let listes = document.querySelectorAll(".mndiv")
                 remove(listes)
 
-                for (let i = 0; i < data.results.length; i++) {
-                    filters(data.results[i])
-                }
+                filters()
 
                 let imagesees = document.querySelectorAll("#imgs")
                 let namesees = document.querySelectorAll("#name")
@@ -118,19 +112,23 @@ window.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
-            function filters(updateData) {
-                if (maleBtn.classList.contains("activ")) {
-                    if (updateData.gender == "male") {
-                        addNew(updateData)
+            function filters() {
+                let updateData = data.results
+
+                for(let jj=0;jj<updateData.length;jj++){
+                    if (maleBtn.classList.contains("activ")) {
+                        if (updateData[jj].gender == "male") {
+                            addNew(updateData[jj])
+                        }
                     }
-                }
-                else if (female.classList.contains("activ")) {
-                    if (updateData.gender == "female") {
-                        addNew(updateData)
+                    else if (female.classList.contains("activ")) {
+                        if (updateData[jj].gender == "female") {
+                            addNew(updateData[jj])
+                        }
                     }
-                }
-                else {
-                    addNew(updateData)
+                    else {
+                        addNew(updateData[jj])
+                    }
                 }
             }
 
