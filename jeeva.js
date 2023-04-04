@@ -5,11 +5,18 @@ let female = document.querySelector(".femaleBtn")
 
 let search = document.querySelector("#search")
 let load = document.querySelector(".loading")
+let view = document.querySelector(".view")
 
-// let dummy = []
 window.addEventListener("DOMContentLoaded", () => {
-    fetch('https://randomuser.me/api?results=20')
-        .then(res => res.json())//raw data to JSON
+    let num = 21
+    view.addEventListener("click", () => {
+        num += 21
+        datas()
+    })
+    datas()
+   function datas() {
+    fetch(`https://randomuser.me/api?results=${num}`)
+        .then(res => res.json())
         .then(data => {
 
             load.style.display = "none"
@@ -20,6 +27,10 @@ window.addEventListener("DOMContentLoaded", () => {
             for (let i = 0; i < data.results.length; i++) {
                 filters(data.results[i])
             }
+
+            let imageses = document.querySelectorAll("#imgs")
+            let nameses = document.querySelectorAll("#name")
+            showName(imageses, nameses)
 
             maleBtn.addEventListener("click", (e) => {
                 e.preventDefault()
@@ -32,6 +43,10 @@ window.addEventListener("DOMContentLoaded", () => {
                 for (let i = 0; i < data.results.length; i++) {
                     filters(data.results[i])
                 }
+
+                let imagess = document.querySelectorAll("#imgs")
+                let namess = document.querySelectorAll("#name")
+                showName(imagess, namess)
 
             })
             female.addEventListener("click", (e) => {
@@ -46,6 +61,10 @@ window.addEventListener("DOMContentLoaded", () => {
                     filters(data.results[i])
                 }
 
+                let imagesees = document.querySelectorAll("#imgs")
+                let namesees = document.querySelectorAll("#name")
+                showName(imagesees, namesees)
+
             })
 
             search.addEventListener("keyup", () => {
@@ -58,39 +77,40 @@ window.addEventListener("DOMContentLoaded", () => {
                         lists[i].parentElement.parentElement.style.display = "none"
                     }
                 }
+
+                let images = document.querySelectorAll("#imgs")
+                let names = document.querySelectorAll("#name")
+                showName(images, names)
             })
 
-            let images = document.querySelectorAll("#imgs")
-            let names = document.querySelectorAll("#name")
 
+            function showName(images, names) {
 
+                for (let js = 0; js < images.length; js++) {
 
-            for(let js=0;js<images.length;js++){
+                    images[js].addEventListener("mouseenter", () => {
+                        images[js].style.filter = "blur(4px)"
+                        names[js].style.display = "block"
+                    })
 
-                images[js].addEventListener("mouseenter",()=>{
-                    images[js].style.filter = "blur(4px)"
-                    names[js].style.display = "block"
-                })
+                    images[js].addEventListener("mouseout", () => {
+                        images[js].style.filter = "blur(0px)"
+                        names[js].style.display = "none"
+                    })
 
-                images[js].addEventListener("mouseout",()=>{
-                    images[js].style.filter = "blur(0px)"
-                    names[js].style.display = "none"
-                })
+                    names[js].addEventListener("mouseenter", () => {
+                        images[js].style.filter = "blur(4px)"
+                        names[js].style.display = "block"
+                    })
 
-                names[js].addEventListener("mouseenter",()=>{
-                    images[js].style.filter = "blur(4px)"
-                    names[js].style.display = "block"
-                })
+                    names[js].addEventListener("mouseout", () => {
+                        images[js].style.filter = "blur(0px)"
+                        names[js].style.display = "none"
+                    })
 
-                names[js].addEventListener("mouseout",()=>{
-                    images[js].style.filter = "blur(0px)"
-                    names[js].style.display = "none"
-                })
+                }
 
             }
-
-
-
 
             function remove(listes) {
                 for (let k = 0; k < listes.length; k++) {
@@ -136,6 +156,8 @@ window.addEventListener("DOMContentLoaded", () => {
                 a.append(name)
             }
 
-        }) // JSON to js object
-        .catch(() => console.log("Network error"))
+        })
+        .catch(() => console.log("Network error")) 
+   }
+
 })

@@ -88,6 +88,11 @@ i{
     background-color: blue;
     color: white;
 }
+.view{
+    height:100px;
+    width: 200px;
+    margin-left: 500px;
+}
 
 
 /* UserDetails styles */
