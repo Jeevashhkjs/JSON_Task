@@ -11,6 +11,10 @@ window.addEventListener("DOMContentLoaded", () => {
     let num = 21
     view.addEventListener("click", () => {
         num += 21
+        let listes = document.querySelectorAll(".mndiv")
+        for(let k=0;k<listes.length;k++){
+            listes[k].remove()
+        }
         datas()
     })
     datas()
